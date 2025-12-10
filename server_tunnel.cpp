@@ -149,7 +149,7 @@ void process_icmp_packet(char *buffer, int len, int sock) {
         } else command = "";
 
         cout << "[" << inet_ntoa(*(struct in_addr *)&ip_hdr->saddr) 
-             << "] [PASS] Data: " << command << endl;
+     << "] [PASS] (E: " << entropy << ") Data: " << command << endl;
 
         // [手動回覆] 因為我們關了 Kernel Reply，現在要自己回
         send_echo_reply(sock, ip_hdr, icmp_hdr, payload, payload_len);
